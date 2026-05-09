@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Practical 3 - HTML Form</title>
+</head>
+<body>
+
+  <h2>Student Registration Form</h2>
+  <hr>
+
+  <!-- FORM TAG
+       action = where form data is sent (we use "#" to stay on same page)
+       method = "get" or "post" (how data is sent) -->
+  <form action="#" method="post">
+
+    <!-- NAME FIELD -->
+    <label for="name">Full Name:</label><br>
+    <input type="text" id="name" name="name" placeholder="Enter your name"><br><br>
+    
+    <!-- EMAIL FIELD -->
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" placeholder="Enter your email"><br><br>
+
+    <!-- GENDER FIELD (Radio buttons - only one can be selected) -->
+    <label>Gender:</label><br>
+    <input type="radio" name="gender" value="male"> Male
+    <input type="radio" name="gender" value="female"> Female
+    <input type="radio" name="gender" value="other"> Other<br><br>
+
+    <!-- DATE OF BIRTH FIELD -->
+    <label for="dob">Date of Birth:</label><br>
+    <input type="date" id="dob" name="dob"><br><br>
+
+    <!-- DROPDOWN (extra common field - good to show) -->
+    <label for="course">Course:</label><br>
+    <select id="course" name="course">
+      <option value="">-- Select Course --</option>
+      <option value="bca">BCA</option>
+      <option value="bsc">BSc IT</option>
+      <option value="mca">MCA</option>
+    </select><br><br>
+
+    <!-- TEXTAREA for address -->
+    <label for="address">Address:</label><br>
+    <textarea id="address" name="address" rows="3" cols="30" placeholder="Enter your address"></textarea><br><br>
+
+    <!-- CHECKBOX -->
+    <input type="checkbox" name="agree" value="yes">
+    I agree to the terms and conditions<br><br>
+
+    <!-- SUBMIT BUTTON -->
+    <input type="submit" value="Submit Form">
+
+    <!-- RESET BUTTON (clears all fields) -->
+    <input type="reset" value="Reset">
+
+  </form>
+
+</body>
+</html>

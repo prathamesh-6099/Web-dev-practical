@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Practical 7 - JavaScript DOM</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 30px; }
+    button { padding: 8px 15px; margin: 6px; cursor: pointer; }
+    #outputBox {
+      border: 2px solid steelblue;
+      padding: 15px;
+      margin-top: 15px;
+      min-height: 50px;
+      background-color: #f0f8ff;
+    }
+    #itemList { margin-top: 10px; }
+  </style>
+</head>
+<body>
+
+  <h2>Practical 7 - Dynamic Content using JavaScript DOM</h2>
+  <hr>
+
+  <!-- =============================================
+       DOM = Document Object Model
+       JavaScript can ACCESS and CHANGE any HTML element
+       using methods like getElementById, innerHTML, style
+       ============================================= -->
+
+  <!-- SECTION 1: Change Text -->
+  <h3>1. Change Text Content</h3>
+  <p id="myText">This is the original text.</p>
+  <button onclick="changeText()">Change Text</button>
+  <button onclick="resetText()">Reset Text</button>
+
+
+  <!-- SECTION 2: Change CSS Style -->
+  <h3>2. Change CSS Style (Color & Font)</h3>
+  <p id="styledText">Watch me change my style!</p>
+  <button onclick="makeRed()">Make Red</button>
+  <button onclick="makeBlue()">Make Blue</button>
+  <button onclick="makeBig()">Make Big</button>
+
+
+  <!-- SECTION 3: Show/Hide Element -->
+  <h3>3. Show / Hide Element</h3>
+  <div id="hiddenBox" style="background:lightyellow; padding:10px; display:none;">
+    🎉 You revealed the hidden box!
+  </div>
+  <button onclick="showBox()">Show Box</button>
+  <button onclick="hideBox()">Hide Box</button>
+
+
+  <!-- SECTION 4: Add Items to a List Dynamically -->
+  <h3>4. Add Items to List</h3>
+  <input type="text" id="itemInput" placeholder="Type something...">
+  <button onclick="addItem()">Add Item</button>
+  <ul id="itemList"></ul>
+
+
+  <!-- SECTION 5: Display Current Date & Time -->
+  <h3>5. Display Current Date & Time</h3>
+  <button onclick="showDateTime()">Show Date & Time</button>
+  <div id="outputBox">Date/Time will appear here...</div>
+
+
+  <!-- =============================================
+       JAVASCRIPT DOM FUNCTIONS
+       ============================================= -->
+  <script>
+
+    // --- Section 1: Change / Reset Text ---
+    function changeText() {
+      // getElementById finds the element with id="myText"
+      // innerHTML sets the HTML content inside it
+      document.getElementById("myText").innerHTML = "<b>Text has been changed using DOM!</b>";
+    }
+
+    function resetText() {
+      document.getElementById("myText").innerHTML = "This is the original text.";
+    }
+
+
+    // --- Section 2: Change CSS using .style ---
+    function makeRed() {
+      var el = document.getElementById("styledText");
+      el.style.color = "red";
+      el.style.fontWeight = "bold";
+    }
+
+    function makeBlue() {
+      var el = document.getElementById("styledText");
+      el.style.color = "blue";
+      el.style.fontStyle = "italic";
+    }
+
+    function makeBig() {
+      document.getElementById("styledText").style.fontSize = "28px";
+    }
+
+
+    // --- Section 3: Show / Hide ---
+    function showBox() {
+      // style.display = "block" makes element visible
+      document.getElementById("hiddenBox").style.display = "block";
+    }
+
+    function hideBox() {
+      // style.display = "none" hides the element
+      document.getElementById("hiddenBox").style.display = "none";
+    }
+
+
+    // --- Section 4: Add to List ---
+    function addItem() {
+      var inputVal = document.getElementById("itemInput").value;
+
+      if (inputVal.trim() === "") {
+        alert("Please type something first!");
+        return;
+      }
+
+      // createElement creates a new <li> tag
+      var li = document.createElement("li");
+
+      // Set the text inside the <li>
+      li.innerText = inputVal;
+
+      // appendChild adds it to the <ul> list
+      document.getElementById("itemList").appendChild(li);
+
+      // Clear the input box
+      document.getElementById("itemInput").value = "";
+    }
+
+
+    // --- Section 5: Date & Time ---
+    function showDateTime() {
+      var now = new Date();  // Get current date and time
+      document.getElementById("outputBox").innerHTML =
+        "<b>Date:</b> " + now.toDateString() +
+        "<br><b>Time:</b> " + now.toLocaleTimeString();
+    }
+
+  </script>
+
+</body>
+</html>

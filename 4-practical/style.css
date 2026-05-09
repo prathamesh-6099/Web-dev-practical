@@ -1,0 +1,54 @@
+/* =============================================
+   PRACTICAL 4 - EXTERNAL CSS FILE (style.css)
+   This file is LINKED from practical4.html
+   ============================================= */
+
+/* Style for body */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f8ff;
+  margin: 20px;
+}
+
+/* Style for main heading */
+h1 {
+  color: darkblue;
+  text-align: center;
+  text-decoration: underline;
+}
+
+/* Style for sub-headings */
+h2 {
+  color: darkgreen;
+}
+
+/* Style for paragraphs */
+p {
+  font-size: 16px;
+  color: #333;
+}
+
+/* Style for the table */
+table {
+  width: 60%;
+  border-collapse: collapse;  /* Merges double borders into single */
+  margin-top: 10px;
+}
+
+/* Style for table header and data cells */
+th, td {
+  border: 2px solid darkblue;
+  padding: 8px;
+  text-align: center;
+}
+
+/* Style for table header row */
+th {
+  background-color: darkblue;
+  color: white;
+}
+
+/* Alternate row color for table */
+tr:nth-child(even) {
+  background-color: #cce5ff;
+}

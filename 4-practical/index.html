@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Practical 4 - Internal, External & Inline CSS</title>
+
+  <!-- =============================================
+       1. EXTERNAL CSS
+       Linked from a separate file "style.css"
+       Applies to the whole website (reusable)
+       ============================================= -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <!-- =============================================
+       2. INTERNAL CSS
+       Written inside <style> tag in <head>
+       Applies only to THIS HTML page
+       ============================================= -->
+  <style>
+    /* Internal CSS - styles the section div */
+    .internal-section {
+      background-color: lightyellow;
+      border: 2px dashed orange;
+      padding: 10px;
+      margin: 15px 0;
+    }
+
+    .internal-section h2 {
+      color: darkorange;
+    }
+
+    /* Highlight class used inside the table */
+    .highlight {
+      background-color: #ffffcc;
+      font-weight: bold;
+    }
+  </style>
+
+</head>
+<body>
+
+  <!-- h1 is styled by EXTERNAL CSS (style.css) -->
+  <h1>CSS Types Demo</h1>
+  <hr>
+
+  <!-- ===== EXTERNAL CSS SECTION ===== -->
+  <h2>1. External CSS (from style.css)</h2>
+  <p>This paragraph is styled using External CSS from the linked style.css file.</p>
+
+  <!-- Table styled by external CSS -->
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Course</th>
+      <th>Marks</th>
+    </tr>
+    <tr>
+      <td>Alice</td>
+      <td>BCA</td>
+      <td>88</td>
+    </tr>
+    <tr>
+      <!-- "highlight" class uses INTERNAL CSS -->
+      <td class="highlight">Bob</td>
+      <td class="highlight">MCA</td>
+      <td class="highlight">95</td>
+    </tr>
+    <tr>
+      <td>Carol</td>
+      <td>BSc IT</td>
+      <td>76</td>
+    </tr>
+  </table>
+
+
+  <!-- ===== INTERNAL CSS SECTION ===== -->
+  <div class="internal-section">
+    <h2>2. Internal CSS (inside &lt;style&gt; tag)</h2>
+    <p>This box is styled using Internal CSS written in the &lt;head&gt; section of this file.</p>
+  </div>
+
+
+  <!-- ===== INLINE CSS SECTION =====
+       Written directly in the HTML element using style=""
+       Highest priority - overrides internal & external CSS -->
+  <h2>3. Inline CSS (inside the HTML tag)</h2>
+
+  <p style="color: red; font-size: 18px; font-weight: bold;">
+    This paragraph is styled using Inline CSS. (color red, size 18px)
+  </p>
+
+  <p style="background-color: lightgreen; padding: 10px; border-radius: 5px;">
+    This paragraph has a green background applied via Inline CSS.
+  </p>
+
+  <p style="font-family: 'Courier New'; color: purple;">
+    This is Courier New font with purple color — all via Inline CSS.
+  </p>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Practical 2 - Image, Hyperlink & Nested Table</title>
+</head>
+<body>
+
+  <h2>Practical 2 - Image, Hyperlink & Nested Table</h2>
+  <hr>
+
+  <!-- IMAGE TAG
+       src    = image URL or file path
+       alt    = text shown if image fails to load
+       width/height = size of image in pixels -->
+  <h3>Image:</h3>
+  <img src="https://via.placeholder.com/200x150" alt="Sample Image" width="200" height="150">
+
+
+  <!-- HYPERLINK TAG
+       href   = URL to navigate to
+       target = "_blank" opens link in new tab -->
+  <h3>Hyperlink:</h3>
+  <a href="https://www.google.com" target="_blank">Click here to visit Google</a>
+
+  <br><br>
+
+  <!-- Image as a hyperlink -->
+  <a href="https://www.google.com" target="_blank">
+    <img src="https://via.placeholder.com/100x50" alt="Click Me">
+  </a>
+
+
+  <!-- NESTED TABLE
+       Outer table contains inner table inside one of its cells -->
+  <h3>Nested Table:</h3>
+
+  <!-- Outer Table -->
+  <table border="1" cellpadding="8" cellspacing="0">
+
+    <tr>
+      <th>Student Name</th>
+      <th>Marks Details</th>  <!-- This cell will hold the inner table -->
+    </tr>
+
+    <tr>
+      <td>John Doe</td>
+      <td>
+        <!-- Inner Table (nested inside outer table's cell) -->
+        <table border="1" cellpadding="5" cellspacing="0" bgcolor="lightyellow">
+          <tr>
+            <th>Subject</th>
+            <th>Marks</th>
+          </tr>
+          <tr>
+            <td>HTML</td>
+            <td>90</td>
+          </tr>
+          <tr>
+            <td>CSS</td>
+            <td>85</td>
+          </tr>
+          <tr>
+            <td>JavaScript</td>
+            <td>88</td>
+          </tr>
+        </table>
+        <!-- End of Inner Table -->
+
+      </td>
+    </tr>
+
+  </table>
+  <!-- End of Outer Table -->
+
+</body>
+</html>

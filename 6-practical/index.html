@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Practical 6 - JS Form Validation</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 30px; }
+    input, select { padding: 6px; width: 250px; margin-top: 4px; }
+    /* Error message style */
+    .error { color: red; font-size: 13px; }
+    /* Success message style */
+    .success { color: green; font-size: 15px; font-weight: bold; }
+    label { display: block; margin-top: 12px; font-weight: bold; }
+    button { margin-top: 15px; padding: 8px 20px; background: darkblue; color: white; border: none; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+  <h2>Practical 6 - Form Validation using JavaScript</h2>
+  <hr>
+
+  <form id="myForm" onsubmit="return validateForm()">
+
+    <!-- Name Field -->
+    <label>Full Name:</label>
+    <input type="text" id="name" placeholder="Enter your name">
+    <span class="error" id="nameError"></span>
+
+    <!-- Email Field -->
+    <label>Email:</label>
+    <input type="text" id="email" placeholder="Enter your email">
+    <span class="error" id="emailError"></span>
+
+    <!-- Phone Field -->
+    <label>Phone Number:</label>
+    <input type="text" id="phone" placeholder="Enter 10-digit phone">
+    <span class="error" id="phoneError"></span>
+
+    <!-- Password Field -->
+    <label>Password:</label>
+    <input type="password" id="password" placeholder="Min 6 characters">
+    <span class="error" id="passwordError"></span>
+
+    <!-- Submit -->
+    <br>
+    <button type="submit">Submit</button>
+
+  </form>
+
+  <!-- Success message shown after valid submit -->
+  <p class="success" id="successMsg"></p>
+
+
+  <!-- =============================================
+       JAVASCRIPT VALIDATION
+       ============================================= -->
+  <script>
+
+    function validateForm() {
+
+      // Clear all previous error messages first
+      document.getElementById("nameError").innerText = "";
+      document.getElementById("emailError").innerText = "";
+      document.getElementById("phoneError").innerText = "";
+      document.getElementById("passwordError").innerText = "";
+      document.getElementById("successMsg").innerText = "";
+
+      // Get values from input fields (trim removes extra spaces)
+      var name     = document.getElementById("name").value.trim();
+      var email    = document.getElementById("email").value.trim();
+      var phone    = document.getElementById("phone").value.trim();
+      var password = document.getElementById("password").value.trim();
+
+      var isValid = true;  // Flag to track if all fields are valid
+
+      // --- Validate Name (must not be empty) ---
+      if (name === "") {
+        document.getElementById("nameError").innerText = "* Name is required.";
+        isValid = false;
+      } 
+
+      // --- Validate Email using Regular Expression ---
+      // This pattern checks for proper email format like abc@xyz.com
+      var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (email === "") {
+        document.getElementById("emailError").innerText = "* Email is required.";
+        isValid = false;
+      } else if (!emailPattern.test(email)) {
+        document.getElementById("emailError").innerText = "* Enter a valid email (e.g. abc@gmail.com).";
+        isValid = false;
+      }
+
+      // --- Validate Phone (must be exactly 10 digits) ---
+      var phonePattern = /^[0-9]{10}$/;
+      if (phone === "") {
+        document.getElementById("phoneError").innerText = "* Phone number is required.";
+        isValid = false;
+      } else if (!phonePattern.test(phone)) {
+        document.getElementById("phoneError").innerText = "* Phone must be exactly 10 digits.";
+        isValid = false;
+      }
+
+      // --- Validate Password (min 6 characters) ---
+      if (password === "") {
+        document.getElementById("passwordError").innerText = "* Password is required.";
+        isValid = false;
+      } else if (password.length < 6) {
+        document.getElementById("passwordError").innerText = "* Password must be at least 6 characters.";
+        isValid = false;
+      }
+
+      // If all validations passed, show success message
+      if (isValid) {
+        document.getElementById("successMsg").innerText = "✔ Form submitted successfully!";
+      }
+
+      // return false = stop form from actually submitting/refreshing
+      return false;
+    }
+
+  </script>
+
+</body>
+</html>

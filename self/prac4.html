@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Three Ways</title>
+
+    <!-- 1. EXTERNAL CSS: Linking to the styles.css file -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- 2. INTERNAL CSS: Written directly inside the <head> -->
+    <style>
+        h2 {
+            color: darkblue;
+            text-align: center;
+            font-style: italic;
+        }
+        
+        /* A special class for the table rows */
+        .highlight-row {
+            background-color: #ffffcc; /* Light yellow */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 3. INLINE CSS: Written directly inside the HTML tag using the 'style' attribute -->
+    <h1 style="color: red; text-align: center; text-decoration: underline;">
+        Welcome to the CSS Demo
+    </h1>
+
+    <h2>This heading is styled using Internal CSS</h2>
+
+    <!-- The table uses External CSS, but we add Inline and Internal styles to specific parts -->
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Status</th>
+        </tr>
+        
+        <!-- Applying the Internal CSS class here -->
+        <tr class="highlight-row">
+            <td>Alice</td>
+            <td>Developer</td>
+            <!-- Applying Inline CSS to just this one cell -->
+            <td style="color: green; font-weight: bold;">Active</td> 
+        </tr>
+        
+        <tr>
+            <td>Bob</td>
+            <td>Designer</td>
+            <td style="color: red; font-weight: bold;">Offline</td>
+        </tr>
+    </table>
+
+</body>
+</html>

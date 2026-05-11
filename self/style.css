@@ -1,0 +1,24 @@
+/* --- styles.css (EXTERNAL CSS) --- */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9; 
+}
+
+/* Styling the table structure externally */
+table {
+    width: 60%;
+    margin: 20px auto; /* Centers the table */
+    border-collapse: collapse; /* Removes double borders */
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #333;
+    color: white;
+}
